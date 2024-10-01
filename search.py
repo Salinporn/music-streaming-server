@@ -80,6 +80,9 @@ def recommend(user_songs: list[str]):
             else:
                 suggestions.upgrade_and_extend(cur_result)
 
+        if suggestions is None:
+            suggestions = []
+
         return {
             "results": [dict(hit)["uuid"] for hit in suggestions]
         }
